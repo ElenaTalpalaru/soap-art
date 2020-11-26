@@ -1,0 +1,31 @@
+body {
+  background-color: #f4f6ff;
+}
+h1{
+  color: #66BFBF;
+}
+h3{
+  color: #66BFBF;
+}
+hr {
+  border-color: grey;
+  border-width: 4px;
+  border-radius: 0;
+  border-style: dotted none none;
+  width: 0;
+  width: 4%;
+}
+
+table,
+th,
+td {
+  border-style: inset;
+  border-collapse: collapse;
+  background-color: FloralWhite;
+  width: 60%;
+  text-align: center;
+}
+
+label{
+  color: #20B2AA;
+}
