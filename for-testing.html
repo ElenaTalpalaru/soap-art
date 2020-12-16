@@ -1,0 +1,87 @@
+<head>
+    <!--
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    -->
+<style>
+    div {
+    width: 40rem;
+    }
+</style>
+
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+        function login() {
+            var u = document.getElementById("username").value;
+            var p = document.getElementById("password").value;
+            alert (u.length <= 8 || p.length <= 8 ? "Password or username\nmust be at least\n8 characters" : "user registered. Welcome, " + u);
+        }
+
+        function calcualteInterest() {
+            var sum = parseInt(document.getElementById("sum").value);
+            var interest = sum < 1000 ? 4 : sum > 10000 ? 9 : 7;
+            var interestSum = sum / 100 * interest + sum;
+            document.getElementById("result").innerHTML = "The calcualted sum is: " + interestSum;
+        }
+
+        function calcDeduction() {
+            var category = document.getElementById("category").value
+            var country = document.getElementById("country").value
+            var text = (category === "pensioneer" && country === "FR") ? "10% discount" : "No discount";
+            document.getElementById("deductionResult").innerHTML = text;
+        }
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <p>1. Boundary value</p>
+        <p>To register, enter a username of at least 8 chars and a password of at least 8 chars</p>
+        <input type="text" id="username" class="form-control">
+        <br>
+        <input type="text" id="password" class="form-control">
+        <br>
+        <input type="submit" id="submit" onclick="login()">
+    </div>
+<hr>
+    <div>
+        <p>2. Equivalence partitioning</p>
+        <div>
+            <p>For sums of < 1000, interest rate should be 5%</p>
+            <p>For sums between 1000 and 10000, interest rate should be 7%</p>
+            <p>For sums of > 10000, interest rate should be 9%</p>
+            <input type ="text" id="sum" class="form-control">
+            <br>
+            <input type = "submit" value = "calculate" onclick="calcualteInterest()">
+            <p id="result"></p>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <p>3. Decision table</p>
+        <div>
+            <p>Pensioneers and Frenchmen have a 10% deduction</p>
+            <select id="category">
+                <option value="child">child</option>
+                <option value="student">student</option>
+                <option value="employee">employee</option>
+                <option value="pensioneer">pensioneer</option>
+            </select>
+            <select id = "country">
+                <option value="FR">FR</option>
+                <option value="EN">EN</option>
+            </select>
+            <input type = "submit" onclick="calcDeduction()">
+            <p id ="deductionResult"></p>
+        </div>
+    </div>
+</body>
